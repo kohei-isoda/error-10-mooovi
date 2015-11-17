@@ -17,12 +17,12 @@
                     <div class="box">
                       <div class="box__cell w80">
                         <div class="thumbnail thumbnail--photo">
-                          <div class="thumbnail__figure" style="background-image: url('http://image.eiga.k-img.com/images/movie/81541/poster2/200.jpg?1436408098');"></div>
+                          <div class="thumbnail__figure" style="background-image: url('<%= @product.image_url %>');"></div>
                         </div>
                       </div>
                       <div class="box__cell pl1em">
                         <h3 class="text-middle text-break color-sub">
-                          タイトル
+                          <%= @product.title %>
                         </h3>
                         <p class="text-xsmall">
                         </p>
@@ -34,10 +34,6 @@
               </ul>
             </div>
             <%= form_for [@product, @review] do |f| %>
-              <div style="margin: 8px 0">
-                <%= f.label :ニックネーム, style: { 'margin-right' => 8 } %>
-                <%= f.text_field :nickname, placeholder: 'ニックネーム' %>
-              </div>
               <div style="margin: 8px 0">
                 <%= f.label :評価, style: { 'margin-right' => 8 } %>
                 <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
