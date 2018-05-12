@@ -20563,3 +20563,896 @@ ActionView::Template::Error (undefined method `title' for nil:NilClass):
   Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
   Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
   Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (77.2ms)
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:27:25 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+Completed 500 Internal Server Error in 57ms
+
+SyntaxError (/Users/koheiisoda/projects/error-10-mooovi/app/models/product.rb:2: syntax error, unexpected ':', expecting keyword_end
+  has_many: reviews
+           ^):
+  app/controllers/products_controller.rb:8:in `show'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (90.6ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:29:23 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mProduct Load (0.7ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  Rendered products/show.html.erb within layouts/review_site (5.7ms)
+Completed 500 Internal Server Error in 88ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+     7:             <div class="container">
+     8:               <header class="header header--section">
+     9:                 <h2 class="text-middle">
+    10:                   <i class="icon-movie color-gray-light"></i><%= @product.title %>
+    11:                 </h2>
+    12:               </header>
+    13:               <p style="text-align: center">
+  app/views/products/show.html.erb:10:in `_app_views_products_show_html_erb__3099997424385498638_70102767926220'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (72.6ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:30:36 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  Rendered products/show.html.erb within layouts/review_site (14.8ms)
+Completed 500 Internal Server Error in 96ms
+
+ActionView::Template::Error (undefined method `review' for #<Product:0x007f84253bcb20>
+Did you mean?  reviews
+               reviews=):
+    22:                 </h2>
+    23:               </header>
+    24:               <ul style="padding: 0">
+    25:               <% @product.review.each do |review| %>
+    26:                 <li style="border-bottom: dotted 1px">
+    27:                   <div class="thumbnail__caption">
+    28:                     <h3 class="text-xsmall text-overflow" title="<%= review.user.nickname %>">
+  app/views/products/show.html.erb:25:in `_app_views_products_show_html_erb__3099997424385498638_70102767926220'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (61.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:31:57 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1[0m
+  Rendered products/show.html.erb within layouts/review_site (34.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 210ms (Views: 185.0ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:31:57 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:31:57 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:31:57 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:31:57 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:31:57 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:32:13 +0900
+Processing by ReviewsController#new as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Product without an ID):
+  app/controllers/reviews_controller.rb:4:in `new'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (81.5ms)
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:34:35 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ReviewsController#new as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 114ms
+
+SyntaxError (/Users/koheiisoda/projects/error-10-mooovi/app/models/product.rb:2: syntax error, unexpected ':', expecting keyword_end
+  has_many: reviews
+           ^):
+  app/controllers/reviews_controller.rb:4:in `new'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (88.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:35:12 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+Processing by ReviewsController#new as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 404 Not Found in 39ms
+
+ActiveRecord::RecordNotFound (Couldn't find Product without an ID):
+  app/controllers/reviews_controller.rb:4:in `new'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (90.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:36:00 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+Processing by ReviewsController#new as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 404 Not Found in 64ms
+
+ActiveRecord::RecordNotFound (Couldn't find Product without an ID):
+  app/controllers/reviews_controller.rb:4:in `new'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (80.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:38:29 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+Processing by ProductsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT `products`.* FROM `products` ORDER BY id ASC LIMIT 20[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 2[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 3
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 4[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 5
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 6[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 7
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 8[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 9
+  [1m[36mReview Load (1.1ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 10[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 11
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 12[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 13
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 14[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 15
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 16[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 17
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 18[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 19
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 20[0m
+  Rendered products/index.html.erb within layouts/review_site (72.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 235ms (Views: 167.1ms | ActiveRecord: 51.6ms)
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:38:30 +0900
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:38:30 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:38:30 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:38:30 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:38:30 +0900
+
+
+Started GET "/images/icons/icon-movie-poster.png" for 127.0.0.1 at 2018-05-12 05:38:30 +0900
+
+ActionController::RoutingError (No route matches [GET] "/images/icons/icon-movie-poster.png"):
+  actionpack (4.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.4) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.4) lib/rails/engine.rb:511:in `call'
+  railties (4.0.4) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.3ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (172.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:44:24 +0900
+Processing by ProductsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT `products`.* FROM `products` ORDER BY id ASC LIMIT 20
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 2
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 3[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 4
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 5[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 6
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 7[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 8
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 9[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 10
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 11[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 12
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 13[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 14
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 15[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 16
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 17[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 18
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 19[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 20
+  Rendered products/index.html.erb within layouts/review_site (27.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 61ms (Views: 51.7ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:44:24 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:44:24 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:44:24 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:44:24 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:44:24 +0900
+
+
+Started GET "/images/icons/icon-movie-poster.png" for 127.0.0.1 at 2018-05-12 05:44:24 +0900
+
+ActionController::RoutingError (No route matches [GET] "/images/icons/icon-movie-poster.png"):
+  actionpack (4.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.4) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.4) lib/rails/engine.rb:511:in `call'
+  railties (4.0.4) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (88.0ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:44:27 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (1.5ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (1.2ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered products/show.html.erb within layouts/review_site (4.8ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+     7:             <div class="container">
+     8:               <header class="header header--section">
+     9:                 <h2 class="text-middle">
+    10:                   <i class="icon-movie color-gray-light"></i><%= @product.title %>
+    11:                 </h2>
+    12:               </header>
+    13:               <p style="text-align: center">
+  app/views/products/show.html.erb:10:in `_app_views_products_show_html_erb__455564177346545257_70305544370300'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (50.8ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:45:42 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered products/show.html.erb within layouts/review_site (6.7ms)
+Completed 500 Internal Server Error in 77ms
+
+ActionView::Template::Error (undefined method `review' for #<Product:0x007fe291447598>
+Did you mean?  reviews
+               reviews=):
+    22:                 </h2>
+    23:               </header>
+    24:               <ul style="padding: 0">
+    25:               <% @product.review.each do |review| %>
+    26:                 <li style="border-bottom: dotted 1px">
+    27:                   <div class="thumbnail__caption">
+    28:                     <h3 class="text-xsmall text-overflow" title="<%= review.user.nickname %>">
+  app/views/products/show.html.erb:25:in `_app_views_products_show_html_erb__455564177346545257_70305544370300'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (50.9ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:46:20 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered products/show.html.erb within layouts/review_site (6.7ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `review' for #<Product:0x007fe2921fe8f8>
+Did you mean?  reviews
+               reviews=):
+    22:                 </h2>
+    23:               </header>
+    24:               <ul style="padding: 0">
+    25:               <% @product.review.each do |review| %>
+    26:                 <li style="border-bottom: dotted 1px">
+    27:                   <div class="thumbnail__caption">
+    28:                     <h3 class="text-xsmall text-overflow" title="<%= review.user.nickname %>">
+  app/views/products/show.html.erb:25:in `_app_views_products_show_html_erb__455564177346545257_70305544370300'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (51.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:46:33 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1
+  Rendered products/show.html.erb within layouts/review_site (2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 53ms (Views: 29.4ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:33 +0900
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:33 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:33 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:33 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:33 +0900
+
+
+Started GET "/products/1/reviews/new" for 127.0.0.1 at 2018-05-12 05:46:46 +0900
+Processing by ReviewsController#new as HTML
+  Parameters: {"product_id"=>"1"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  Rendered reviews/new.html.erb within layouts/review_site (42.5ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined method `product_reviews_path' for #<#<Class:0x007fe2931bbf48>:0x007fe2931bb048>
+Did you mean?  product_path):
+    33:                 </li>
+    34:               </ul>
+    35:             </div>
+    36:             <%= form_for [@product, @review] do |f| %>
+    37:               <div style="margin: 8px 0">
+    38:                 <%= f.label :評価, style: { 'margin-right' => 8 } %>
+    39:                 <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  app/views/reviews/new.html.erb:36:in `_app_views_reviews_new_html_erb__3169497070498439880_70305553698380'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (53.8ms)
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:49 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:49 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:49 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:49 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:46:49 +0900
+
+
+Started GET "/products/1/reviews/new" for 127.0.0.1 at 2018-05-12 05:46:53 +0900
+Processing by ReviewsController#new as HTML
+  Parameters: {"product_id"=>"1"}
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered reviews/new.html.erb within layouts/review_site (43.3ms)
+Completed 500 Internal Server Error in 54ms
+
+ActionView::Template::Error (undefined method `product_reviews_path' for #<#<Class:0x007fe2931bbf48>:0x007fe294db5758>
+Did you mean?  product_path):
+    33:                 </li>
+    34:               </ul>
+    35:             </div>
+    36:             <%= form_for [@product, @review] do |f| %>
+    37:               <div style="margin: 8px 0">
+    38:                 <%= f.label :評価, style: { 'margin-right' => 8 } %>
+    39:                 <%= f.number_field :rate, placeholder: '評価', value: 1, max: 10, min: 1, html: { class: "search__query", style: 'text-align: right;' } %>
+  app/views/reviews/new.html.erb:36:in `_app_views_reviews_new_html_erb__3169497070498439880_70305553698380'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (50.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:49:25 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:49:25 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:49:25 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:49:25 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:49:25 +0900
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:49:25 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1
+  Rendered products/show.html.erb within layouts/review_site (1.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 105ms (Views: 24.0ms | ActiveRecord: 56.5ms)
+
+
+Started GET "/products/1/reviews/new" for 127.0.0.1 at 2018-05-12 05:50:25 +0900
+Processing by ReviewsController#new as HTML
+  Parameters: {"product_id"=>"1"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  Rendered reviews/new.html.erb within layouts/review_site (61.4ms)
+Completed 200 OK in 76ms (Views: 72.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/products/1/reviews" for 127.0.0.1 at 2018-05-12 05:50:30 +0900
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kVkA3BX0Lm54mLaV3nNL1Zfy0IYI45bCgW1F90JJeSU=", "review"=>{"rate"=>"1", "review"=>"sss"}, "product_id"=>"1"}
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+Unpermitted parameters: review
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `reviews` (`created_at`, `product_id`, `rate`, `updated_at`, `user_id`) VALUES ('2018-05-11 20:50:30', 1, 1, '2018-05-11 20:50:30', 1)
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 16.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:50:30 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (1.8ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT `products`.* FROM `products` ORDER BY id ASC LIMIT 20
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1[0m
+  Rendered products/index.html.erb within layouts/review_site (12.0ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (private method `review_average' called for #<Product:0x007fe295f376c0>
+Did you mean?  review_ids):
+    20:                     <p class="text-small">
+    21:                       <span class="rating-star">
+    22:                       <% if product.reviews.present? %>
+    23:                         <i class="star-actived rate-<%= product.review_average %>0"></i>
+    24:                       <% else %>
+    25:                         <i class="star-actived rate-0"></i>
+    26:                       <% end %>
+  app/views/products/index.html.erb:23:in `block in _app_views_products_index_html_erb___3261791393169144600_70305586482900'
+  app/views/products/index.html.erb:14:in `_app_views_products_index_html_erb___3261791393169144600_70305586482900'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (46.0ms)
+
+
+Started POST "/products/1/reviews" for 127.0.0.1 at 2018-05-12 05:52:17 +0900
+DEPRECATION WARNING: [paperclip] [deprecation] Rails 3.2 and 4.1 are unsupported as of Rails 5 release. Please upgrade to Rails 4.2 before upgrading paperclip. (called from <class:User> at /Users/koheiisoda/projects/error-10-mooovi/app/models/user.rb:7)
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kVkA3BX0Lm54mLaV3nNL1Zfy0IYI45bCgW1F90JJeSU=", "review"=>{"rate"=>"1", "review"=>"sss"}, "product_id"=>"1"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: review
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `reviews` (`created_at`, `product_id`, `rate`, `updated_at`, `user_id`) VALUES ('2018-05-11 20:52:17', 1, 1, '2018-05-11 20:52:17', 1)
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 55ms (ActiveRecord: 16.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:52:17 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT `products`.* FROM `products` ORDER BY id ASC LIMIT 20
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1[0m
+  [1m[35m (2.1ms)[0m  SELECT AVG(`reviews`.`rate`) AS avg_id FROM `reviews` WHERE `reviews`.`product_id` = 1
+  [1m[36mReview Load (3.9ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 2[0m
+  [1m[35mReview Load (0.4ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 3
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 4[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 5
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 6[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 7
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 8[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 9
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 10[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 11
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 12[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 13
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 14[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 15
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 16[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 17
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 18[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 19
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 20[0m
+  Rendered products/index.html.erb within layouts/review_site (31.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 45ms (Views: 29.5ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:52:18 +0900
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:52:18 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:52:18 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:52:18 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:52:18 +0900
+
+
+Started GET "/images/icons/icon-movie-poster.png" for 127.0.0.1 at 2018-05-12 05:52:18 +0900
+
+ActionController::RoutingError (No route matches [GET] "/images/icons/icon-movie-poster.png"):
+  actionpack (4.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.4) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.4) lib/rails/engine.rb:511:in `call'
+  railties (4.0.4) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (103.9ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-12 05:52:19 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mProduct Load (0.8ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  [1m[36mProduct Load (0.7ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered products/show.html.erb within layouts/review_site (11.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 21.2ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/products/search" for 127.0.0.1 at 2018-05-12 05:55:02 +0900
+Processing by ProductsController#search as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProduct Load (0.9ms)[0m  [1mSELECT `products`.* FROM `products` WHERE (product LIKE('%%')) LIMIT 20[0m
+Mysql2::Error: Unknown column 'product' in 'where clause': SELECT  `products`.* FROM `products`  WHERE (product LIKE('%%')) LIMIT 20
+  Rendered products/search.html.erb within layouts/review_site (6.8ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (Mysql2::Error: Unknown column 'product' in 'where clause': SELECT  `products`.* FROM `products`  WHERE (product LIKE('%%')) LIMIT 20):
+    25:                 </h2>
+    26:               </header>
+    27:               <ul class="listview js-lazy-load-images">
+    28:               <% @products.each do |product| %>
+    29:                 <li>
+    30:                   <a class="listview__element--right-icon" href="/products/<%= product.id %>/reviews/new" title="<%= product.title %>">
+    31:                     <div class="position-right p1em">
+  app/views/products/search.html.erb:28:in `_app_views_products_search_html_erb__1492239193345939174_70305545565560'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (56.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:14 +0900
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:14 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:14 +0900
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:14 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:14 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:55:23 +0900
+Processing by ProductsController#index as HTML
+  [1m[35m (7.4ms)[0m  SELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT `products`.* FROM `products` ORDER BY id ASC LIMIT 20
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT AVG(`reviews`.`rate`) AS avg_id FROM `reviews` WHERE `reviews`.`product_id` = 1
+  [1m[36mReview Load (0.4ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 2[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 3
+  [1m[36mReview Load (0.4ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 4[0m
+  [1m[35mReview Load (1.7ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 5
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 6[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 7
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 8[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 9
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 10[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 11
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 12[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 13
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 14[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 15
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 16[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 17
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 18[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 19
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 20[0m
+  Rendered products/index.html.erb within layouts/review_site (30.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 54ms (Views: 34.1ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/images/icons/icon-movie-poster.png" for 127.0.0.1 at 2018-05-12 05:55:23 +0900
+
+ActionController::RoutingError (No route matches [GET] "/images/icons/icon-movie-poster.png"):
+  actionpack (4.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.4) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.4) lib/rails/engine.rb:511:in `call'
+  railties (4.0.4) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (91.0ms)
+
+
+Started GET "/products/search" for 127.0.0.1 at 2018-05-12 05:55:24 +0900
+Processing by ProductsController#search as HTML
+  [1m[36m (2.3ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT `products`.* FROM `products` WHERE (product LIKE('%%')) LIMIT 20
+Mysql2::Error: Unknown column 'product' in 'where clause': SELECT  `products`.* FROM `products`  WHERE (product LIKE('%%')) LIMIT 20
+  Rendered products/search.html.erb within layouts/review_site (3.7ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (Mysql2::Error: Unknown column 'product' in 'where clause': SELECT  `products`.* FROM `products`  WHERE (product LIKE('%%')) LIMIT 20):
+    25:                 </h2>
+    26:               </header>
+    27:               <ul class="listview js-lazy-load-images">
+    28:               <% @products.each do |product| %>
+    29:                 <li>
+    30:                   <a class="listview__element--right-icon" href="/products/<%= product.id %>/reviews/new" title="<%= product.title %>">
+    31:                     <div class="position-right p1em">
+  app/views/products/search.html.erb:28:in `_app_views_products_search_html_erb__1492239193345939174_70305545565560'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (51.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-12 05:55:26 +0900
+Processing by ProductsController#index as HTML
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(`reviews`.`product_id`) AS count_product_id, product_id AS product_id FROM `reviews` GROUP BY product_id ORDER BY count_product_id DESC LIMIT 5[0m
+  [1m[35mProduct Load (0.5ms)[0m  SELECT `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1
+  [1m[36mProduct Load (11.9ms)[0m  [1mSELECT `products`.* FROM `products` ORDER BY id ASC LIMIT 20[0m
+  [1m[35mReview Load (1.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 1
+  [1m[36m (0.8ms)[0m  [1mSELECT AVG(`reviews`.`rate`) AS avg_id FROM `reviews` WHERE `reviews`.`product_id` = 1[0m
+  [1m[35mReview Load (2.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 2
+  [1m[36mReview Load (0.7ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 3[0m
+  [1m[35mReview Load (0.7ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 4
+  [1m[36mReview Load (0.8ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 5[0m
+  [1m[35mReview Load (0.6ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 6
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 7[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 8
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 9[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 10
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 11[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 12
+  [1m[36mReview Load (0.4ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 13[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 14
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 15[0m
+  [1m[35mReview Load (0.3ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 16
+  [1m[36mReview Load (1.5ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 17[0m
+  [1m[35mReview Load (0.9ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 18
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 19[0m
+  [1m[35mReview Load (2.0ms)[0m  SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`product_id` = 20
+  Rendered products/index.html.erb within layouts/review_site (60.2ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 126ms (Views: 89.5ms | ActiveRecord: 29.9ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:26 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:27 +0900
+
+
+Started GET "/assets/review_site.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:27 +0900
+
+
+Started GET "/assets/ranking.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:27 +0900
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2018-05-12 05:55:27 +0900
+
+
+Started GET "/images/icons/icon-movie-poster.png" for 127.0.0.1 at 2018-05-12 05:55:27 +0900
+
+ActionController::RoutingError (No route matches [GET] "/images/icons/icon-movie-poster.png"):
+  actionpack (4.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.4) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.4) lib/rails/engine.rb:511:in `call'
+  railties (4.0.4) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/koheiisoda/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (115.3ms)
