@@ -3,7 +3,7 @@ TechReviewSite::Application.routes.draw do
   root 'reviews#new'
   resources :users, only: :show
   resources :products, only: :show do
-    resources :reviews, only: [:new]
+    resources :reviews, only: :new
     collection
       get 'search'
     end
